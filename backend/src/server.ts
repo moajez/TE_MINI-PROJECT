@@ -4,6 +4,7 @@ import cors from 'cors';
 import connectDB from './config/db';
 import userRoutes from './routes/userRoutes';
 import syllabusRoutes from './routes/syllabusRoutes';
+import { error } from 'console';
 
 dotenv.config();
 
@@ -22,6 +23,14 @@ app.use(cors({
 
 app.use('/api/users', userRoutes);
 app.use("/api/syllabus", syllabusRoutes);
+
+app.get('/', (req, res) => {
+  res.send({
+    activeStatus: true,
+    error: false,
+    message: 'Server is running',
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
