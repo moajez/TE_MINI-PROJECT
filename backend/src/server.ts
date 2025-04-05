@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
     error: false,
     message: 'Server is running',
   });
-});
+});// this is extra
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
